@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arena</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            background-color: whitesmoke;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+
+        td {
+            width: 6%;
+            text-align: center;
+            vertical-align: center;
+            padding: 0px;
+        }
+
+        td:after {
+            content: '';
+            display: block;
+            margin-top: 100%;
+        }
+
+        .bridge,
+        #H11 {
+            background-color: rgb(105, 83, 26);
+            border-radius: 25%;
+        }
+
+        .water,
+        #A1,
+        #A2,
+        #B3,
+        #C4,
+        #D5,
+        #D6,
+        #D7,
+        #D8,
+        #E8,
+        #F8,
+        #G9,
+        #G10,
+        #G11,
+        #I11,
+        #J11,
+        #K12,
+        #K13,
+        #L14,
+        #M15,
+        #M16 {
+            background-color: lightblue;
+        }
+
+        .rock,
+        #H5,
+        #P9,
+        #C13 {
+            background-color: #3b3f41;
+            padding: 5px;
+            border-radius: 100%;
+        }
+
+        .tree,
+        #N5,
+        #B10 {
+            background-color: green;
+            padding: 5px;
+            border-radius: 100%;
+        }
+
+        .fogcloud,
+        #H11,
+        /* 5' */
+        #G10,
+        #H10,
+        #I10,
+        #I11,
+        #I12,
+        #H12,
+        #G12,
+        #G11,
+        /* 10' */
+        #F9,
+        #G9,
+        #H9,
+        #I9,
+        #J9,
+        #J10,
+        #J11,
+        #J12,
+        #J13,
+        #I13,
+        #H13,
+        #G13,
+        #F13,
+        #F12,
+        #F11,
+        #F10 {
+            border: 2px dashed grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map">
+    <table style="border: 1px solid black;border-collapse: collapse;">
+        <caption>Arena Map</caption>
+        <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+            <th>K</th>
+            <th>L</th>
+            <th>M</th>
+            <th>N</th>
+            <th>O</th>
+            <th>P</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td id="A1"></td>
+            <td id="B1"></td>
+            <td id="C1"></td>
+            <td id="D1"></td>
+            <td id="E1"></td>
+            <td id="F1"></td>
+            <td id="G1"></td>
+            <td id="H1"></td>
+            <td id="I1"></td>
+            <td id="J1"></td>
+            <td id="K1"></td>
+            <td id="L1"></td>
+            <td id="M1"></td>
+            <td id="N1"></td>
+            <td id="O1"></td>
+            <td id="P1"></td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td id="A2"></td>
+            <td id="B2"></td>
+            <td id="C2"></td>
+            <td id="D2"></td>
+            <td id="E2"></td>
+            <td id="F2"></td>
+            <td id="G2"></td>
+            <td id="H2"></td>
+            <td id="I2"></td>
+            <td id="J2"></td>
+            <td id="K2"></td>
+            <td id="L2"></td>
+            <td id="M2"></td>
+            <td id="N2"></td>
+            <td id="O2"></td>
+            <td id="P2"></td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td id="A3"></td>
+            <td id="B3"></td>
+            <td id="C3"></td>
+            <td id="D3"></td>
+            <td id="E3"></td>
+            <td id="F3"></td>
+            <td id="G3"></td>
+            <td id="H3"></td>
+            <td id="I3"></td>
+            <td id="J3"></td>
+            <td id="K3"></td>
+            <td id="L3"></td>
+            <td id="M3"></td>
+            <td id="N3"></td>
+            <td id="O3"></td>
+            <td id="P3"></td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td id="A4"></td>
+            <td id="B4"></td>
+            <td id="C4"></td>
+            <td id="D4"></td>
+            <td id="E4"></td>
+            <td id="F4"></td>
+            <td id="G4"></td>
+            <td id="H4"></td>
+            <td id="I4"></td>
+            <td id="J4"></td>
+            <td id="K4"></td>
+            <td id="L4"></td>
+            <td id="M4"></td>
+            <td id="N4"></td>
+            <td id="O4"></td>
+            <td id="P4"></td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td id="A5"></td>
+            <td id="B5"></td>
+            <td id="C5"></td>
+            <td id="D5"></td>
+            <td id="E5"></td>
+            <td id="F5"></td>
+            <td id="G5"></td>
+            <td id="H5"></td>
+            <td id="I5"></td>
+            <td id="J5"></td>
+            <td id="K5"></td>
+            <td id="L5"></td>
+            <td id="M5"></td>
+            <td id="N5"></td>
+            <td id="O5"></td>
+            <td id="P5"></td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td id="A6"></td>
+            <td id="B6"></td>
+            <td id="C6"></td>
+            <td id="D6"></td>
+            <td id="E6"></td>
+            <td id="F6"></td>
+            <td id="G6"></td>
+            <td id="H6"></td>
+            <td id="I6"></td>
+            <td id="J6"></td>
+            <td id="K6"></td>
+            <td id="L6"></td>
+            <td id="M6"></td>
+            <td id="N6"></td>
+            <td id="O6"></td>
+            <td id="P6"></td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td id="A7"></td>
+            <td id="B7"></td>
+            <td id="C7"></td>
+            <td id="D7"></td>
+            <td id="E7"></td>
+            <td id="F7"></td>
+            <td id="G7"></td>
+            <td id="H7"></td>
+            <td id="I7"></td>
+            <td id="J7"></td>
+            <td id="K7"></td>
+            <td id="L7"></td>
+            <td id="M7"></td>
+            <td id="N7"></td>
+            <td id="O7"></td>
+            <td id="P7"></td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td id="A8"></td>
+            <td id="B8"></td>
+            <td id="C8"></td>
+            <td id="D8"></td>
+            <td id="E8"></td>
+            <td id="F8"></td>
+            <td id="G8"></td>
+            <td id="H8"></td>
+            <td id="I8"></td>
+            <td id="J8"></td>
+            <td id="K8"></td>
+            <td id="L8"></td>
+            <td id="M8"></td>
+            <td id="N8"></td>
+            <td id="O8"></td>
+            <td id="P8"></td>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td id="A9"></td>
+            <td id="B9"></td>
+            <td id="C9"></td>
+            <td id="D9"></td>
+            <td id="E9"></td>
+            <td id="F9"></td>
+            <td id="G9"></td>
+            <td id="H9"></td>
+            <td id="I9"></td>
+            <td id="J9"></td>
+            <td id="K9"></td>
+            <td id="L9"></td>
+            <td id="M9"></td>
+            <td id="N9"></td>
+            <td id="O9"></td>
+            <td id="P9"></td>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td id="A10"></td>
+            <td id="B10"></td>
+            <td id="C10"></td>
+            <td id="D10"></td>
+            <td id="E10"></td>
+            <td id="F10"></td>
+            <td id="G10"></td>
+            <td id="H10"></td>
+            <td id="I10"></td>
+            <td id="J10"></td>
+            <td id="K10"></td>
+            <td id="L10"></td>
+            <td id="M10"></td>
+            <td id="N10"></td>
+            <td id="O10"></td>
+            <td id="P10"></td>
+        </tr>
+        <tr>
+            <th>11</th>
+            <td id="A11"></td>
+            <td id="B11"></td>
+            <td id="C11"></td>
+            <td id="D11"></td>
+            <td id="E11"></td>
+            <td id="F11"></td>
+            <td id="G11"></td>
+            <td id="H11"></td>
+            <td id="I11"></td>
+            <td id="J11"></td>
+            <td id="K11"></td>
+            <td id="L11"></td>
+            <td id="M11"></td>
+            <td id="N11"></td>
+            <td id="O11"></td>
+            <td id="P11"></td>
+        </tr>
+        <tr>
+            <th>12</th>
+            <td id="A12"></td>
+            <td id="B12"></td>
+            <td id="C12"></td>
+            <td id="D12"></td>
+            <td id="E12"></td>
+            <td id="F12"></td>
+            <td id="G12"></td>
+            <td id="H12"></td>
+            <td id="I12"></td>
+            <td id="J12"></td>
+            <td id="K12"></td>
+            <td id="L12"></td>
+            <td id="M12"></td>
+            <td id="N12"></td>
+            <td id="O12"></td>
+            <td id="P12"></td>
+        </tr>
+        <tr>
+            <th>13</th>
+            <td id="A13"></td>
+            <td id="B13"></td>
+            <td id="C13"></td>
+            <td id="D13"></td>
+            <td id="E13"></td>
+            <td id="F13"></td>
+            <td id="G13"></td>
+            <td id="H13"></td>
+            <td id="I13"></td>
+            <td id="J13"></td>
+            <td id="K13"></td>
+            <td id="L13"></td>
+            <td id="M13"></td>
+            <td id="N13"></td>
+            <td id="O13"></td>
+            <td id="P13"></td>
+        </tr>
+        <tr>
+            <th>14</th>
+            <td id="A14"></td>
+            <td id="B14"></td>
+            <td id="C14"></td>
+            <td id="D14"></td>
+            <td id="E14"></td>
+            <td id="F14"></td>
+            <td id="G14"></td>
+            <td id="H14"></td>
+            <td id="I14"></td>
+            <td id="J14"></td>
+            <td id="K14"></td>
+            <td id="L14"></td>
+            <td id="M14"></td>
+            <td id="N14"></td>
+            <td id="O14"></td>
+            <td id="P14"></td>
+        </tr>
+        <tr>
+            <th>15</th>
+            <td id="A15"></td>
+            <td id="B15"></td>
+            <td id="C15"></td>
+            <td id="D15"></td>
+            <td id="E15"></td>
+            <td id="F15"></td>
+            <td id="G15"></td>
+            <td id="H15"></td>
+            <td id="I15"></td>
+            <td id="J15"></td>
+            <td id="K15"></td>
+            <td id="L15"></td>
+            <td id="M15"></td>
+            <td id="N15"></td>
+            <td id="O15"></td>
+            <td id="P15"></td>
+        </tr>
+        <tr>
+            <th>16</th>
+            <td id="A16"></td>
+            <td id="B16"></td>
+            <td id="C16"></td>
+            <td id="D16"></td>
+            <td id="E16"></td>
+            <td id="F16"></td>
+            <td id="G16"></td>
+            <td id="H16"></td>
+            <td id="I16"></td>
+            <td id="J16"></td>
+            <td id="K16"></td>
+            <td id="L16"></td>
+            <td id="M16"></td>
+            <td id="N16"></td>
+            <td id="O16"></td>
+            <td id="P16"></td>
+        </tr>
+    </table>
+    </div>
+    <div id="effects">
+        <table>
+            <caption>Effects</caption>
+        </table>
+    </div>
+</body>
+
+</html>
