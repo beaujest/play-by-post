@@ -1,5 +1,3 @@
-# Play by Post maping
+# Active maps
 
-## Active maps
-
-[Arena](arena/maps.html)
+[Arena](arena/map.html)
