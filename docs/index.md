@@ -2,4 +2,4 @@
 
 ## Active maps
 
-[Arena] (arena/maps.html)
+[Arena](arena/maps.html)
