@@ -1,8 +1,11 @@
-title: Play by Post mapping
+title: Play by Post
 author: Beau Tremblay
 email: beau.tremblay@gmail.com
-description: 
-  An exploration of using GitHub pages to handle mapping for play
-  by post encounters.
-  
+description: Mapping generated from GitHub pages project
 theme: jekyll-theme-architect
+columnLabels: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
+collections:
+ matches:
+  output: true
+ characters:
+  output: true
